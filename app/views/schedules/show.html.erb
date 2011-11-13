@@ -1,20 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Nombre:</b>
   <%= @schedule.name %>
 </p>
 
 <p>
-  <b>Code:</b>
+  <b>Código:</b>
   <%= @schedule.code %>
 </p>
 
 <p>
-  <b>Period:</b>
-  <%= @schedule.period_id %>
+  <b>Período:</b>
+  <%= @schedule.period.name %>
 </p>
 
 
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
+<%= link_to 'Editar', edit_schedule_path(@schedule) %> |
+<%= link_to 'Regresar', schedules_path %>

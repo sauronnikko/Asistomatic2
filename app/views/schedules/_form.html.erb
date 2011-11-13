@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :period_id %><br />
-    <%= f.number_field :period_id %>
+    <%= f.collection_select :period_id, Period.all, :id, :name, :prompt => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,5 +1,7 @@
 class Schedule < ActiveRecord::Base
 
+  belongs_to :period
+
   validates_presence_of :name
   validates_presence_of :period_id
 
