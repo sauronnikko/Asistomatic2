@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111113165951) do
+ActiveRecord::Schema.define(:version => 20111113170556) do
 
   create_table "employees", :force => true do |t|
     t.string   "first_name",      :default => "", :null => false
@@ -33,5 +33,15 @@ ActiveRecord::Schema.define(:version => 20111113165951) do
   end
 
   add_index "periods", ["name"], :name => "index_periods_on_name", :unique => true
+
+  create_table "schedules", :force => true do |t|
+    t.string   "name",       :default => "", :null => false
+    t.string   "code"
+    t.integer  "period_id",  :default => 0,  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schedules", ["period_id", "name"], :name => "index_schedules_on_period_id_and_name", :unique => true
 
 end

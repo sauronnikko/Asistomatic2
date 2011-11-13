@@ -1,4 +1,6 @@
 Asistomatic::Application.routes.draw do
+  resources :schedules
+
   resources :periods
 
   resources :employees
