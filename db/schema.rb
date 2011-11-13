@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111113165408) do
+ActiveRecord::Schema.define(:version => 20111113165951) do
 
   create_table "employees", :force => true do |t|
     t.string   "first_name",      :default => "", :null => false
@@ -24,5 +24,14 @@ ActiveRecord::Schema.define(:version => 20111113165408) do
   end
 
   add_index "employees", ["unique_id"], :name => "index_employees_on_unique_id", :unique => true
+
+  create_table "periods", :force => true do |t|
+    t.string   "name",       :default => "", :null => false
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "periods", ["name"], :name => "index_periods_on_name", :unique => true
 
 end

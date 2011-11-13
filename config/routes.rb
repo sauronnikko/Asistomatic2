@@ -1,4 +1,6 @@
 Asistomatic::Application.routes.draw do
+  resources :periods
+
   resources :employees
 
   # The priority is based upon order of creation:
