@@ -1,10 +1,10 @@
-<h1>Listing schedules</h1>
+<h1>Horarios</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Code</th>
-    <th>Period</th>
+    <th>Nombre</th>
+    <th>Código</th>
+    <th>Período Escolar</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,13 +15,13 @@
     <td><%= schedule.name %></td>
     <td><%= schedule.code %></td>
     <td><%= schedule.period_id %></td>
-    <td><%= link_to 'Show', schedule %></td>
-    <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-    <td><%= link_to 'Destroy', schedule, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Ver', [schedule.period, schedule] %></td>
+    <td><%= link_to 'Editar', edit_period_schedule_path(schedule.period, schedule) %></td>
+    <td><%= link_to 'Eliminar', [schedule.period, schedule], confirm: '¿Está seguro que desea eliminar este horario?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Schedule', new_schedule_path %>
+<%= link_to 'Nuevo Horario', new_period_schedule_path(@period) %>

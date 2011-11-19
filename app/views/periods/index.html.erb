@@ -1,9 +1,9 @@
-<h1>Listing periods</h1>
+<h1>Períodos Escolares</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Code</th>
+    <th>Nombre</th>
+    <th>Código</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,13 +13,13 @@
   <tr>
     <td><%= period.name %></td>
     <td><%= period.code %></td>
-    <td><%= link_to 'Show', period %></td>
-    <td><%= link_to 'Edit', edit_period_path(period) %></td>
-    <td><%= link_to 'Destroy', period, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Ver', period %></td>
+    <td><%= link_to 'Editar', edit_period_path(period) %></td>
+    <td><%= link_to 'Eliminar', period, confirm: '¿Está seguro que desea eliminar este período escolar?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Period', new_period_path %>
+<%= link_to 'Nuevo Período', new_period_path %>

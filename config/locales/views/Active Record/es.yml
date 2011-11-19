@@ -5,6 +5,8 @@ es:
         record_invalid: "el registro es inválido"
     models:
       employee: Empleado
+      period: Período Escolar
+      schedule: Horario
     attributes:
       employee:
         first_name: "Nombre"
@@ -12,3 +14,10 @@ es:
         unique_id: "No. de Cédula"
         date_of_birth: "Fecha de Nacimiento"
         employee_type: "Tipo de Empleado"
+      period:
+        name: "Nombre"
+        code: "Código"
+      schedule:
+        name: "Nombre"
+        code: "Código"
+        period_id: "Período Escolar"

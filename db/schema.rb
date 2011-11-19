@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119153613) do
+ActiveRecord::Schema.define(:version => 20111119212458) do
 
   create_table "absences", :force => true do |t|
     t.string   "description"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(:version => 20111119153613) do
   end
 
   add_index "periods", ["name"], :name => "index_periods_on_name", :unique => true
+
+  create_table "schedule_blocks", :force => true do |t|
+    t.time     "start_time",  :default => '2000-01-01 21:24:34', :null => false
+    t.time     "end_time",    :default => '2000-01-01 22:24:34', :null => false
+    t.integer  "schedule_id", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "schedule_blocks", ["schedule_id", "end_time"], :name => "index_schedule_blocks_on_schedule_id_and_end_time", :unique => true
+  add_index "schedule_blocks", ["schedule_id", "start_time"], :name => "index_schedule_blocks_on_schedule_id_and_start_time", :unique => true
 
   create_table "schedules", :force => true do |t|
     t.string   "name",       :default => "", :null => false

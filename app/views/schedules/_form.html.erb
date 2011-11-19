@@ -1,4 +1,4 @@
-<%= form_for(@schedule) do |f| %>
+<%= form_for [@period, @schedule] do |f| %>
   <% if @schedule.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
@@ -19,10 +19,7 @@
     <%= f.label :code %><br />
     <%= f.text_field :code %>
   </div>
-  <div class="field">
-    <%= f.label :period_id %><br />
-    <%= f.collection_select :period_id, Period.all, :id, :name, :prompt => true %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

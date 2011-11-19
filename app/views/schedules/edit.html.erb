@@ -1,6 +1,6 @@
-<h1>Editing schedule</h1>
+<h1>Editar Horario</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @schedule %> |
-<%= link_to 'Back', schedules_path %>
+<%= link_to 'Ver', [@schedule.period, @schedule] %> |
+<%= link_to 'Regresar', period_schedules_path(@schedule.period) %>

@@ -16,5 +16,5 @@
 </p>
 
 
-<%= link_to 'Editar', edit_schedule_path(@schedule) %> |
-<%= link_to 'Regresar', schedules_path %>
+<%= link_to 'Editar', edit_period_schedule_path(@schedule.period, @schedule) %> |
+<%= link_to 'Regresar', period_schedules_path(@schedule.period) %>

@@ -1,0 +1,27 @@
+<h1>Listing schedule_blocks</h1>
+
+<table>
+  <tr>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Schedule</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @schedule_blocks.each do |schedule_block| %>
+  <tr>
+    <td><%= schedule_block.start_time %></td>
+    <td><%= schedule_block.end_time %></td>
+    <td><%= schedule_block.schedule_id %></td>
+    <td><%= link_to 'Show', schedule_block %></td>
+    <td><%= link_to 'Edit', edit_schedule_block_path(schedule_block) %></td>
+    <td><%= link_to 'Destroy', schedule_block, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Schedule block', new_schedule_block_path %>

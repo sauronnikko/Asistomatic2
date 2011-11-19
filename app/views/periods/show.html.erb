@@ -1,15 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Nombre:</b>
   <%= @period.name %>
 </p>
 
 <p>
-  <b>Code:</b>
+  <b>Código:</b>
   <%= @period.code %>
 </p>
 
+<h3><%= 'Horarios' if @period.schedules.any? %> </h3>
+<% @period.schedules.each do |schedule| %>
+  <li><%= link_to schedule.name, [@period, schedule] %></li>
+<% end %>
 
-<%= link_to 'Edit', edit_period_path(@period) %> |
-<%= link_to 'Back', periods_path %>
+<br>
+
+<%= link_to 'Editar', edit_period_path(@period) %> |
+<%= link_to 'Regresar', periods_path %>
