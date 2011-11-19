@@ -1,0 +1,25 @@
+<%= form_for(@absence) do |f| %>
+  <% if @absence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@absence.errors.count, "error") %> prohibited this absence from being saved:</h2>
+
+      <ul>
+      <% @absence.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_id %><br />
+    <%= f.number_field :employee_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
