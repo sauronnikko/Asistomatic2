@@ -3,7 +3,7 @@ class AbsencesController < ApplicationController
   # GET /absences.json
   def index
     @absences = Absence.all
-
+  
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @absences }
@@ -14,7 +14,8 @@ class AbsencesController < ApplicationController
   # GET /absences/1.json
   def show
     @absence = Absence.find(params[:id])
-
+   
+ 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @absence }

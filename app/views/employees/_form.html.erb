@@ -1,15 +1,6 @@
 <%= form_for(@employee) do |f| %>
-  <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
-
-      <ul>
-      <% @employee.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  
+  <%= render "shared/error_messages", :target => @employee %>
 
   <div class="field">
     <%= f.label :first_name %><br />
@@ -29,7 +20,7 @@
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
+    <%= f.date_select :date_of_birth, :start_year => Time.now.year - 100, :end_year => Time.now.year - 18 %>
   </div>
   <div class="actions">
     <%= f.submit %>

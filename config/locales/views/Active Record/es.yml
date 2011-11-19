@@ -1,0 +1,14 @@
+es:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "el registro es inválido"
+    models:
+      employee: Empleado
+    attributes:
+      employee:
+        first_name: "Nombre"
+        first_last_name: "Apellido"
+        unique_id: "No. de Cédula"
+        date_of_birth: "Fecha de Nacimiento"
+        employee_type: "Tipo de Empleado"

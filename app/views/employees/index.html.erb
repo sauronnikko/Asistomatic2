@@ -1,12 +1,12 @@
-<h1>Listing employees</h1>
+<h1>Lista de Empleados</h1>
 
 <table>
   <tr>
-    <th>First name</th>
-    <th>First last name</th>
-    <th>Unique</th>
-    <th>Employee type</th>
-    <th>Date of birth</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Cédula</th>
+    <th>Tipo</th>
+    <th>Fecha de Nacimiento</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,13 +19,13 @@
     <td><%= employee.unique_id %></td>
     <td><%= employee.employee_type %></td>
     <td><%= employee.date_of_birth %></td>
-    <td><%= link_to 'Show', employee %></td>
-    <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Destroy', employee, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Ver Datos', employee %></td>
+    <td><%= link_to 'Editar', edit_employee_path(employee) %></td>
+    <td><%= link_to 'Eliminar', employee, confirm: '¿Está seguro que desea eliminar a este empleado?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Employee', new_employee_path %>
+<%= link_to 'Crear Empleado', new_employee_path %>

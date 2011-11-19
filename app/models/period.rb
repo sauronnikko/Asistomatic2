@@ -1,6 +1,6 @@
 class Period < ActiveRecord::Base
 
-  has_many :periods
+  has_many :schedules, :dependent => :destroy
 
   validates_presence_of :name
   

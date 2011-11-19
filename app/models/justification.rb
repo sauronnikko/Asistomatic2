@@ -6,4 +6,6 @@ class Justification < ActiveRecord::Base
     validates attr, :presence => true
   end
 
+  validates_uniqueness_of :absence_id
+
 end
