@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111119150108) do
+ActiveRecord::Schema.define(:version => 20111119151709) do
 
   create_table "absences", :force => true do |t|
     t.string   "description"
-    t.integer  "employee_id", :default => 0, :null => false
-    t.integer  "date_id",     :default => 0, :null => false
+    t.integer  "employee_id",  :default => 0, :null => false
+    t.integer  "work_date_id", :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,5 +51,13 @@ ActiveRecord::Schema.define(:version => 20111119150108) do
   end
 
   add_index "schedules", ["period_id", "name"], :name => "index_schedules_on_period_id_and_name", :unique => true
+
+  create_table "work_dates", :force => true do |t|
+    t.date     "work_date",  :default => '2011-11-19', :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "work_dates", ["work_date"], :name => "index_work_dates_on_work_date", :unique => true
 
 end
