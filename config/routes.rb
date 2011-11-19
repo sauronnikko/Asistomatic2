@@ -1,4 +1,6 @@
 Asistomatic::Application.routes.draw do
+  resources :justifications
+
   resources :absences
 
   resources :schedules

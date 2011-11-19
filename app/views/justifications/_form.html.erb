@@ -1,0 +1,29 @@
+<%= form_for(@justification) do |f| %>
+  <% if @justification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@justification.errors.count, "error") %> prohibited this justification from being saved:</h2>
+
+      <ul>
+      <% @justification.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :is_justified %><br />
+    <%= f.check_box :is_justified %>
+  </div>
+  <div class="field">
+    <%= f.label :absence_id %><br />
+    <%= f.number_field :absence_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

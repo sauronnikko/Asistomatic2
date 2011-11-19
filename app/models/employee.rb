@@ -1,6 +1,6 @@
 class Employee < ActiveRecord::Base
 
-  has_many :absences
+  has_many :absences, :dependend => :destroy
 
   validates_presence_of :first_name
   validates_presence_of :first_last_name

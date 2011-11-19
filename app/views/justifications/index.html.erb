@@ -1,0 +1,27 @@
+<h1>Listing justifications</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Is justified</th>
+    <th>Absence</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @justifications.each do |justification| %>
+  <tr>
+    <td><%= justification.description %></td>
+    <td><%= justification.is_justified %></td>
+    <td><%= justification.absence_id %></td>
+    <td><%= link_to 'Show', justification %></td>
+    <td><%= link_to 'Edit', edit_justification_path(justification) %></td>
+    <td><%= link_to 'Destroy', justification, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Justification', new_justification_path %>

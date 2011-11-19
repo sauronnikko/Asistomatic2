@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @justification.description %>
+</p>
+
+<p>
+  <b>Is justified:</b>
+  <%= @justification.is_justified %>
+</p>
+
+<p>
+  <b>Absence:</b>
+  <%= @justification.absence_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_justification_path(@justification) %> |
+<%= link_to 'Back', justifications_path %>
