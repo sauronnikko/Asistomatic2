@@ -2,9 +2,15 @@ class Period < ActiveRecord::Base
 
   has_many :schedules, :dependent => :destroy
 
-  validates_presence_of :name
+  [:name, :start_date, :end_date].each do |attr|
+    validates attr, :presence => true
+  end
   
-  validates_uniqueness_of :name
-  validates_uniqueness_of :code
+  [:name, :code, :start_date, :end_date].each do |attr|
+    validates_uniqueness_of attr 
+  end
+
+  validates_date :start_date
+  validates_date :end_date, :after => lambda { :start_date }
 
 end

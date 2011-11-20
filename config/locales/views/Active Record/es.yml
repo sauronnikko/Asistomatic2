@@ -1,12 +1,18 @@
 es:
   activerecord:
     errors:
+      models:
+        schedule_block:
+          attributes:
+            end_time:
+              after: "debe ser después de la Hora Inicial"
       messages:
         record_invalid: "el registro es inválido"
     models:
       employee: Empleado
       period: Período Escolar
       schedule: Horario
+      schedule_block: Bloque de Horario
     attributes:
       employee:
         first_name: "Nombre"
@@ -21,3 +27,7 @@ es:
         name: "Nombre"
         code: "Código"
         period_id: "Período Escolar"
+      schedule_block:
+        start_time: "Hora Inicial"
+        end_time: "Hora Final"
+

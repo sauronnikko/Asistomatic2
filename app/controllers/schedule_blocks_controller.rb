@@ -24,6 +24,7 @@ class ScheduleBlocksController < ApplicationController
   # GET /schedule_blocks/new
   # GET /schedule_blocks/new.json
   def new
+    @schedule = Schedule.find(params[:schedule_id])
     @schedule_block = ScheduleBlock.new
 
     respond_to do |format|
@@ -34,17 +35,19 @@ class ScheduleBlocksController < ApplicationController
 
   # GET /schedule_blocks/1/edit
   def edit
+    @schedule = Schedule.find(params[:schedule_id])
     @schedule_block = ScheduleBlock.find(params[:id])
   end
 
   # POST /schedule_blocks
   # POST /schedule_blocks.json
   def create
-    @schedule_block = ScheduleBlock.new(params[:schedule_block])
+    @schedule = Schedule.find(params[:schedule_id])
+    @schedule_block = @schedule.schedule_blocks.build(params[:schedule_block]) 
 
     respond_to do |format|
       if @schedule_block.save
-        format.html { redirect_to @schedule_block, notice: 'Schedule block was successfully created.' }
+        format.html { redirect_to [@schedule.period, @schedule], notice: 'El Bloque de Horario fue creado exitosamente' }
         format.json { render json: @schedule_block, status: :created, location: @schedule_block }
       else
         format.html { render action: "new" }

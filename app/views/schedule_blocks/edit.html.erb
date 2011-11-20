@@ -1,6 +1,5 @@
-<h1>Editing schedule_block</h1>
+<h1>Editar Bloque de Horario de <%= @schedule.name %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @schedule_block %> |
-<%= link_to 'Back', schedule_blocks_path %>
+<%= link_to 'Regresar', period_schedule_path(@schedule.period, @schedule) %>

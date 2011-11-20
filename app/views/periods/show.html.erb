@@ -10,6 +10,16 @@
   <%= @period.code %>
 </p>
 
+<p>
+  <b>Fecha Inicial:</b>
+  <%= @period.start_date %>
+</p>
+
+<p>
+  <b>Fecha Final:</b>
+  <%= @period.end_date %>
+</p>
+
 <h3><%= 'Horarios' if @period.schedules.any? %> </h3>
 <% @period.schedules.each do |schedule| %>
   <li><%= link_to schedule.name, [@period, schedule] %></li>

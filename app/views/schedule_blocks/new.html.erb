@@ -1,5 +1,5 @@
-<h1>New schedule_block</h1>
+<h1>Nuevo Bloque de Horario para <%= @schedule.name %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', schedule_blocks_path %>
+<%= link_to 'Regresar', period_schedule_path(@schedule.period, @schedule) %>

@@ -1,28 +1,16 @@
-<%= form_for(@schedule_block) do |f| %>
-  <% if @schedule_block.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@schedule_block.errors.count, "error") %> prohibited this schedule_block from being saved:</h2>
+<%= form_for [@schedule.period, @schedule, @schedule_block] do |f| %>
 
-      <ul>
-      <% @schedule_block.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render "shared/error_messages", :target => @schedule_block %>
 
   <div class="field">
     <%= f.label :start_time %><br />
-    <%= f.time_select :start_time %>
+    <%= f.time_select :start_time, :minute_step => 5 %>
   </div>
   <div class="field">
     <%= f.label :end_time %><br />
-    <%= f.time_select :end_time %>
+    <%= f.time_select :end_time, :minute_step => 5 %>
   </div>
-  <div class="field">
-    <%= f.label :schedule_id %><br />
-    <%= f.number_field :schedule_id %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
