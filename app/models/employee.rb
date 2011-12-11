@@ -8,4 +8,8 @@ class Employee < ActiveRecord::Base
 
   validates_uniqueness_of :unique_id
 
+  def full_name
+    "#{self.first_name} #{self.first_last_name}"
+  end
+
 end

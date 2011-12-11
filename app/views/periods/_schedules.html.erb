@@ -1,0 +1,3 @@
+<%= select_tag :period_schedules_select, options_from_collection_for_select(schedules, :id, :name) %>
+
+<%= render "periods/schedules_schedule_blocks", :schedule => schedule %>

@@ -1,0 +1,10 @@
+<div id="period_schedules_schedule_blocks_checkboxes">
+
+  <% unless schedule.nil? %>
+    <% schedule.schedule_blocks.each do |sb|%>
+      <%= label_tag :schedule_blocks, sb.start_time %>  
+      <%= check_box_tag "absence[schedule_block_ids][]", sb.id %><br>
+    <% end %>
+  <% end %>
+
+</div>

@@ -1,6 +1,9 @@
 class ScheduleBlock < ActiveRecord::Base
 
   belongs_to :schedule
+  has_many :absence_schedule_blocks, :dependent => :destroy
+  has_many :absences, :through => :absence_schedule_blocks
+
 
   [:start_time, :end_time, :schedule_id].each do |attr|
     validates attr, :presence => true

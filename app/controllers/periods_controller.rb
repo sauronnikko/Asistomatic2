@@ -1,4 +1,13 @@
 class PeriodsController < ApplicationController
+
+  def dates
+    @period = Period.find(params[:id])
+    @work_dates = @period.work_dates
+    @schedules = @period.schedules 
+    render :partial => "dates", :locals => { :work_dates => @work_dates, :schedules => @schedules, :schedule => @schedules.first }
+  end
+
+
   # GET /periods
   # GET /periods.json
   def index
@@ -44,7 +53,7 @@ class PeriodsController < ApplicationController
 
     respond_to do |format|
       if @period.save
-        format.html { redirect_to @period, notice: 'Period was successfully created.' }
+        format.html { redirect_to @period, notice: 'El Periodo fue exitosamente creado.' }
         format.json { render json: @period, status: :created, location: @period }
       else
         format.html { render action: "new" }
@@ -57,9 +66,13 @@ class PeriodsController < ApplicationController
   # PUT /periods/1.json
   def update
     @period = Period.find(params[:id])
+    @period.old_start_date = @period.start_date
+    @period.old_end_date = @period.end_date
 
     respond_to do |format|
       if @period.update_attributes(params[:period])
+        @period.create_new_work_dates
+        @period.destroy_orphaned_work_dates
         format.html { redirect_to @period, notice: 'Period was successfully updated.' }
         format.json { head :ok }
       else

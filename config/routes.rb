@@ -3,17 +3,22 @@ Asistomatic::Application.routes.draw do
   get "public/index"
 
   resources :justifications
-
+  resources :schedules do
+    get "schedule_blocks", :on => :member
+  end
   resources :absences
 
 
   resources :periods do
+    get 'dates', :on => :member
     resources :schedules do
       resources :schedule_blocks 
     end
   end
 
-  resources :employees
+  resources :employees do
+    resources :absences
+  end
 
   resources :public
 

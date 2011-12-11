@@ -1,0 +1,5 @@
+<%= select_tag "absence[work_date_id]", options_from_collection_for_select(work_dates, :id, :work_date) %>
+
+<div id="period_schedules_select_partial">
+  <%= render 'periods/schedules', :schedules => schedules, :schedule => schedules.first %>
+</div>

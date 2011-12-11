@@ -1,9 +1,9 @@
-<h1>Listing absences</h1>
+<h1>Inasistencias de <%= @employee.full_name %></h1>
 
 <table>
   <tr>
-    <th>Description</th>
-    <th>Employee</th>
+    <th>Descripción</th>
+    <th>Fecha</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,14 +12,14 @@
 <% @absences.each do |absence| %>
   <tr>
     <td><%= absence.description %></td>
-    <td><%= absence.employee_id %></td>
-    <td><%= link_to 'Show', absence %></td>
-    <td><%= link_to 'Edit', edit_absence_path(absence) %></td>
-    <td><%= link_to 'Destroy', absence, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= absence.date %></td>
+    <td><%= link_to 'Ver Datos', absence %></td>
+    <td><%= link_to 'Editar', edit_employee_absence_path(@employee, absence) %></td>
+    <td><%= link_to 'Eliminar', absence, confirm: '¿Está seguro de que desea eliminar esta inasistencia?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Absence', new_absence_path %>
+<%= link_to 'Nueva Inasistencia', new_employee_absence_path(@employee) %>

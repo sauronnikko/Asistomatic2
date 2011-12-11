@@ -2,7 +2,8 @@ class AbsencesController < ApplicationController
   # GET /absences
   # GET /absences.json
   def index
-    @absences = Absence.all
+    @employee = Employee.find(params[:employee_id])
+    @absences = @employee.absences
   
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +26,10 @@ class AbsencesController < ApplicationController
   # GET /absences/new
   # GET /absences/new.json
   def new
-    @absence = Absence.new
+    @employee = Employee.find(params[:employee_id])
+    @absence = @employee.absences.build
+    @work_dates = Period.first.work_dates
+    @schedules = Period.first.schedules
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,13 +45,16 @@ class AbsencesController < ApplicationController
   # POST /absences
   # POST /absences.json
   def create
-    @absence = Absence.new(params[:absence])
-
+    @employee = Employee.find(params[:employee_id])
+    @absence = @employee.absences.build(params[:absence])
+  
     respond_to do |format|
       if @absence.save
-        format.html { redirect_to @absence, notice: 'Absence was successfully created.' }
+        format.html { redirect_to @absence, notice: 'La inasistencia fue exitosamente creada' }
         format.json { render json: @absence, status: :created, location: @absence }
       else
+        @work_dates = Period.first.work_dates
+        @schedules = Period.first.schedules
         format.html { render action: "new" }
         format.json { render json: @absence.errors, status: :unprocessable_entity }
       end

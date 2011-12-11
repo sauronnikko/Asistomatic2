@@ -21,7 +21,8 @@ gem 'execjs'
 gem 'therubyracer'
 
 gem 'validates_timeliness', '~> 3.0.2'
-
+gem 'pry-rails', :group => :development
+gem 'pry', :group => :development
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
