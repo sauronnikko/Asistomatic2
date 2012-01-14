@@ -1,29 +1,45 @@
-<p id="notice"><%= notice %></p>
+<%= render 'left_menu' %>
 
-<p>
-  <b>Primer nombre:</b>
-  <%= @employee.first_name %>
-</p>
+<div class="grid_9">
 
-<p>
-  <b>Primer apellido:</b>
-  <%= @employee.first_last_name %>
-</p>
+  <div class="box">
 
-<p>
-  <b>No. de Cédula:</b>
-  <%= @employee.unique_id %>
-</p>
+    <h2>
+      <a href="#" id="toggle-paragraphs">Datos del Empleado</a>
+    </h2>
+    <div class="block" id="paragraphs">
 
-<p>
-  <b>Tipo de Empleado:</b>
-  <%= @employee.employee_type %>
-</p>
 
-<p>
-  <b>Fecha de Nacimiento:</b>
-  <%= @employee.date_of_birth %>
-</p>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+      <b>Primer nombre:</b>
+      <%= @employee.first_name %>
+      </p>
+
+      <p>
+      <b>Primer apellido:</b>
+      <%= @employee.first_last_name %>
+      </p>
+
+      <p>
+      <b>No. de Cédula:</b>
+      <%= @employee.unique_id %>
+      </p>
+
+      <p>
+      <b>Tipo de Empleado:</b>
+      <%= @employee.employee_type %>
+      </p>
+
+      <p>
+      <b>Fecha de Nacimiento:</b>
+      <%= @employee.date_of_birth %>
+      </p>
+
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Inasistencias', employee_absences_path(@employee) %> | 
 <%= link_to 'Editar', edit_employee_path(@employee) %> |

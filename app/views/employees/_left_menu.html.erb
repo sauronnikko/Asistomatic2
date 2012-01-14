@@ -16,7 +16,25 @@
           </li>
         </ul>
         </li>
+        <% unless @employee.nil? or @employee.new_record? %>
+        <li>
+        <a class="menuitem">Empleado Actual</a>
+        <ul class="submenu">
+          <li>
+          <%= link_to "Ver Datos de Empleado", employee_path(@employee) %>
+          </li>
+          <li>
+          <%= link_to "Editar Empleado", edit_employee_path(@employee) %>
+          </li>
+          <li>
+          <%= link_to "Eliminar Empleado", @employee, :method => :delete, :confirm => "¿Está seguro que desea eliminar este empleado?" %>
+          </li>
+        </ul>
+        </li>
+      <% end %>
       </ul>
+
+
     </div>
   </div>
 </div>
