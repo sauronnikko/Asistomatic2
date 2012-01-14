@@ -1,20 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= render 'left_menu' %>
 
-<p>
-  <b>Start time:</b>
-  <%= @schedule_block.start_time %>
-</p>
+<div class="grid_9">
 
-<p>
-  <b>End time:</b>
-  <%= @schedule_block.end_time %>
-</p>
+  <div class="box">
 
-<p>
-  <b>Schedule:</b>
-  <%= @schedule_block.schedule_id %>
-</p>
+    <h2>
+      <a href="#" id="toggle-paragraphs">Datos del Bloque de Horario</a>
+    </h2>
+    <div class="block" id="paragraphs">
 
+      <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_schedule_block_path(@schedule_block) %> |
-<%= link_to 'Back', schedule_blocks_path %>
+      <p>
+      <b>Start time:</b>
+      <%= @schedule_block.start_time %>
+      </p>
+
+      <p>
+      <b>End time:</b>
+      <%= @schedule_block.end_time %>
+      </p>
+
+      <p>
+      <b>Schedule:</b>
+      <%= @schedule_block.schedule_id %>
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

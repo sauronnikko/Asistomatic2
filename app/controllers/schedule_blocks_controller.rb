@@ -1,4 +1,16 @@
 class ScheduleBlocksController < ApplicationController
+
+  before_filter :find_period
+  before_filter :find_schedule
+
+  def find_schedule
+    @schedule = Schedule.find(params[:schedule_id])
+  end
+
+  def find_period
+    @period = Period.find(params[:period_id])
+  end
+
   # GET /schedule_blocks
   # GET /schedule_blocks.json
   def index
@@ -63,7 +75,7 @@ class ScheduleBlocksController < ApplicationController
 
     respond_to do |format|
       if @schedule_block.update_attributes(params[:schedule_block])
-        format.html { redirect_to @schedule_block, notice: 'Schedule block was successfully updated.' }
+        format.html { redirect_to [@period, @schedule, @schedule_block], notice: 'El bloque de horario ha sido actualizado exitosamente' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -79,7 +91,7 @@ class ScheduleBlocksController < ApplicationController
     @schedule_block.destroy
 
     respond_to do |format|
-      format.html { redirect_to schedule_blocks_url }
+      format.html { redirect_to period_schedule_path(@period, @schedule) }
       format.json { head :ok }
     end
   end

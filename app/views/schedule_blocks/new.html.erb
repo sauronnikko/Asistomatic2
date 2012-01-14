@@ -1,5 +1,9 @@
-<h1>Nuevo Bloque de Horario para <%= @schedule.name %></h1>
+<%= render 'left_menu' %>
 
-<%= render 'form' %>
+<div class="grid_9">
 
-<%= link_to 'Regresar', period_schedule_path(@schedule.period, @schedule) %>
+  <h1>Nuevo Bloque de Horario para <%= @schedule.name %></h1>
+
+  <%= render 'form' %>
+
+</div>

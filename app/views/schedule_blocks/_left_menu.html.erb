@@ -1,0 +1,50 @@
+<div class="grid_3">
+  <div class="box menu">
+    <h2>
+      <a href="#" id="toggle-section-menu">Menú</a>
+    </h2>
+    <div class="block" id="section-menu">
+      <ul class="section menu">
+        <li>
+        <a class="menuitem">Horarios</a>
+        <ul class="submenu">
+          <li>
+          <%= link_to "Listar Horarios para Período #{@period.name}", period_schedules_path(@period) %>
+          </li>
+          <li>
+          <%= link_to "Crear Horario para Período #{@period.name}", new_period_schedule_path(@period) %>
+          </li>
+        </ul>
+        </li>
+        <% unless @schedule.nil? or @schedule.new_record? %>
+          <li>
+          <a class="menuitem">Horario Actual</a>
+          <ul class="submenu">
+            <li>
+            <%= link_to "Ver Datos de Horario", period_schedule_path(@period, @schedule) %>
+            </li>
+            <li>
+            <%= link_to "Editar Horario", edit_period_schedule_path(@period, @schedule) %>
+            </li>
+            <li>
+            <%= link_to "Eliminar Horario", [@period, @schedule], :method => :delete, :confirm => "¿Esta seguro que desea eliminar este horario del Periodo #{@period.name}?" %>
+            </li>
+          </ul>
+          </li>
+        <% end %>
+        <% unless @schedule.nil? or @schedule.new_record? %>
+          <li>
+          <a class="menuitem">Bloques de Horario de Horario Actual</a>
+          <ul class="submenu">
+            <li>
+            <%= link_to "Agregar Bloque de Horario", new_period_schedule_schedule_block_path(@period, @schedule) %>
+            </li>
+          </ul>
+          </li>
+        <% end %>
+      </ul>
+
+
+    </div>
+  </div>
+</div>

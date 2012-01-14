@@ -1,15 +1,21 @@
-<p id="notice"><%= notice %></p>
+<%= render 'left_menu' %>
 
-<p>
-  <b>Description:</b>
-  <%= @absence.description %>
-</p>
+<div class="grid_9">
 
-<p>
-  <b>Employee:</b>
-  <%= @absence.employee_id %>
-</p>
+  <div class="box">
 
+    <h2>
+      <a href="#" id="toggle-paragraphs">Datos la Inasistencia</a>
+    </h2>
+    <div class="block" id="paragraphs">
 
-<%= link_to 'Edit', edit_absence_path(@absence) %> |
-<%= link_to 'Back', absences_path %>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+      <b>Descripción:</b>
+      <%= @absence.description %>
+      </p>
+
+    </div>
+  </div>
+</div>

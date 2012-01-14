@@ -1,25 +1,33 @@
-<h1>Inasistencias de <%= @employee.full_name %></h1>
+<%= render 'employees/left_menu' %>
 
-<table>
-  <tr>
-    <th>Descripción</th>
-    <th>Fecha</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_9">
 
-<% @absences.each do |absence| %>
-  <tr>
-    <td><%= absence.description %></td>
-    <td><%= absence.date %></td>
-    <td><%= link_to 'Ver Datos', absence %></td>
-    <td><%= link_to 'Editar', edit_employee_absence_path(@employee, absence) %></td>
-    <td><%= link_to 'Eliminar', absence, confirm: '¿Está seguro de que desea eliminar esta inasistencia?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <div class="box">
 
-<br />
+    <h1>Inasistencias de <%= @employee.full_name %></h1>
 
-<%= link_to 'Nueva Inasistencia', new_employee_absence_path(@employee) %>
+    <div class="block">
+      <table>
+        <tr>
+          <th>Descripción</th>
+          <th>Fecha</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @absences.each do |absence| %>
+          <tr>
+            <td><%= absence.description %></td>
+            <td><%= absence.date %></td>
+            <td><%= link_to 'Ver Datos', absence %></td>
+            <td><%= link_to 'Editar', edit_employee_absence_path(@employee, absence) %></td>
+            <td><%= link_to 'Eliminar', absence, confirm: '¿Está seguro de que desea eliminar esta inasistencia?', method: :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>
+  </div>
+</div>
+
