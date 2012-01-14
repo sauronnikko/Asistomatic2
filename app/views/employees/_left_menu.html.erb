@@ -1,0 +1,22 @@
+<div class="grid_3">
+  <div class="box menu">
+    <h2>
+      <a href="#" id="toggle-section-menu">Menú</a>
+    </h2>
+    <div class="block" id="section-menu">
+      <ul class="section menu">
+        <li>
+        <a class="menuitem">Empleados</a>
+        <ul class="submenu">
+          <li>
+          <%= link_to "Listar Empleados", employees_path %>
+          </li>
+          <li>
+          <%= link_to "Crear Empleado", new_employee_path %>
+          </li>
+        </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

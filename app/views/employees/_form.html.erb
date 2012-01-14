@@ -1,28 +1,38 @@
-<%= form_for(@employee) do |f| %>
-  
-  <%= render "shared/error_messages", :target => @employee %>
+<div class="box">
 
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+
+  <h2>
+    <a href="#" id="toggle-forms">Formulario de Creación</a>
+  </h2>
+
+  <div class="block" id="forms">
+    <%= form_for(@employee) do |f| %>
+
+      <%= render "shared/error_messages", :target => @employee %>
+
+      <div class="field">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="field">
+        <%= f.label :first_last_name %><br />
+        <%= f.text_field :first_last_name %>
+      </div>
+      <div class="field">
+        <%= f.label :unique_id %><br />
+        <%= f.text_field :unique_id %>
+      </div>
+      <div class="field">
+        <%= f.label :employee_type %><br />
+        <%= f.text_field :employee_type %>
+      </div>
+      <div class="field">
+        <%= f.label :date_of_birth %><br />
+        <%= f.date_select :date_of_birth, :start_year => Time.now.year - 100, :end_year => Time.now.year - 18 %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :first_last_name %><br />
-    <%= f.text_field :first_last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :unique_id %><br />
-    <%= f.text_field :unique_id %>
-  </div>
-  <div class="field">
-    <%= f.label :employee_type %><br />
-    <%= f.text_field :employee_type %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth, :start_year => Time.now.year - 100, :end_year => Time.now.year - 18 %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

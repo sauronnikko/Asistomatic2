@@ -1,31 +1,42 @@
-<h1>Lista de Empleados</h1>
+<%= render 'left_menu' %>
 
-<table>
-  <tr>
-    <th>Nombre</th>
-    <th>Apellido</th>
-    <th>Cédula</th>
-    <th>Tipo</th>
-    <th>Fecha de Nacimiento</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="grid_9">
 
-<% @employees.each do |employee| %>
-  <tr>
-    <td><%= employee.first_name %></td>
-    <td><%= employee.first_last_name %></td>
-    <td><%= employee.unique_id %></td>
-    <td><%= employee.employee_type %></td>
-    <td><%= employee.date_of_birth %></td>
-    <td><%= link_to 'Ver Datos', employee %></td>
-    <td><%= link_to 'Editar', edit_employee_path(employee) %></td>
-    <td><%= link_to 'Eliminar', employee, confirm: '¿Está seguro que desea eliminar a este empleado?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <div class="box">
+    <h1>Lista de Empleados</h1>
 
-<br />
+    <div class="block">
 
-<%= link_to 'Crear Empleado', new_employee_path %>
+      <table>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cédula</th>
+          <th>Tipo</th>
+          <th>Fecha de Nacimiento</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @employees.each do |employee| %>
+          <tr>
+            <td><%= employee.first_name %></td>
+            <td><%= employee.first_last_name %></td>
+            <td><%= employee.unique_id %></td>
+            <td><%= employee.employee_type %></td>
+            <td><%= employee.date_of_birth %></td>
+            <td><%= link_to 'Ver Datos', employee %></td>
+            <td><%= link_to 'Editar', edit_employee_path(employee) %></td>
+            <td><%= link_to 'Eliminar', employee, confirm: '¿Está seguro que desea eliminar a este empleado?', method: :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>
+
+  </div>
+
+  <br />
+
+</div>
