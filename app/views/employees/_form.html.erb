@@ -1,6 +1,6 @@
 <div class="box">
   <h2>
-    <a href="#" id="toggle-forms">Formulario de <%= if @employee then "Edición" else "Creación" end %></a>
+    <a href="#" id="toggle-forms">Formulario de <%= if @employee.new_record? then "Creación" else "Edición" end %></a>
   </h2>
 
   <div class="block" id="forms">

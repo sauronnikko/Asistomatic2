@@ -1,32 +1,44 @@
-<p id="notice"><%= notice %></p>
+<%= render 'left_menu' %>
 
-<p>
-  <b>Nombre:</b>
-  <%= @period.name %>
-</p>
+<div class="grid_9">
 
-<p>
-  <b>Código:</b>
-  <%= @period.code %>
-</p>
+  <div class="box">
 
-<p>
-  <b>Fecha Inicial:</b>
-  <%= @period.start_date %>
-</p>
+    <h2>
+      <a href="#" id="toggle-paragraphs">Datos del Período Escolar</a>
+    </h2>
+    <div class="block" id="paragraphs">
 
-<p>
-  <b>Fecha Final:</b>
-  <%= @period.end_date %>
-</p>
 
-<h3><%= 'Horarios' if @period.schedules.any? %> </h3>
-<% @period.schedules.each do |schedule| %>
-  <li><%= link_to schedule.name, [@period, schedule] %></li>
-<% end %>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+      <b>Nombre:</b>
+      <%= @period.name %>
+      </p>
+
+      <p>
+      <b>Código:</b>
+      <%= @period.code %>
+      </p>
+
+      <p>
+      <b>Fecha Inicial:</b>
+      <%= @period.start_date %>
+      </p>
+
+      <p>
+      <b>Fecha Final:</b>
+      <%= @period.end_date %>
+      </p>
+
+      <h3><%= 'Horarios' if @period.schedules.any? %> </h3>
+      <% @period.schedules.each do |schedule| %>
+        <li><%= link_to schedule.name, [@period, schedule] %></li>
+      <% end %>
+
+    </div>
+  </div>
+</div>
 
 <br>
-
-<%= link_to 'Nuevo Horario', new_period_schedule_path(@period) %> |
-<%= link_to 'Editar', edit_period_path(@period) %> |
-<%= link_to 'Regresar', periods_path %>

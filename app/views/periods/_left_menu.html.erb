@@ -1,0 +1,40 @@
+<div class="grid_3">
+  <div class="box menu">
+    <h2>
+      <a href="#" id="toggle-section-menu">Menú</a>
+    </h2>
+    <div class="block" id="section-menu">
+      <ul class="section menu">
+        <li>
+        <a class="menuitem">Períodos Escolares</a>
+        <ul class="submenu">
+          <li>
+          <%= link_to "Listar Períodos Escolares", periods_path %>
+          </li>
+          <li>
+          <%= link_to "Crear Período Escolar", new_period_path %>
+          </li>
+        </ul>
+        </li>
+        <% unless @period.nil? or @period.new_record? %>
+        <li>
+        <a class="menuitem">Período Escolar Actual</a>
+        <ul class="submenu">
+          <li>
+          <%= link_to "Ver Datos de Período Escolar", period_path(@period) %>
+          </li>
+          <li>
+          <%= link_to "Editar Período Escolar", edit_period_path(@period) %>
+          </li>
+          <li>
+          <%= link_to "Eliminar Período Escolar", @period, :method => :delete, :confirm => "¿Está seguro que desea eliminar este período escolar?" %>
+          </li>
+        </ul>
+        </li>
+      <% end %>
+      </ul>
+
+
+    </div>
+  </div>
+</div>

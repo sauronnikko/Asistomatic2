@@ -1,23 +1,33 @@
-<%= form_for(@period) do |f| %>
-  <%= render "shared/error_messages", :target => @period %>
+<div class="box">
+  <h2>
+    <a href="#" id="toggle-forms">Formulario de <%= if @period.new_record? then "Creación" else "Edición" end %></a>
+  </h2>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="block" id="forms">
+
+    <%= form_for(@period) do |f| %>
+      <%= render "shared/error_messages", :target => @period %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :code %><br />
+        <%= f.text_field :code %>
+      </div>
+      <div class="field">
+        <%= f.label :start_date %><br />
+        <%= f.date_select :start_date %>
+      </div>
+      <div class="field">
+        <%= f.label :end_date %><br />
+        <%= f.date_select :end_date %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
   </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
