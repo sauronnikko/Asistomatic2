@@ -21,6 +21,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/1
   # GET /schedules/1.json
   def show
+    @period = Period.find(params[:period_id])
     @schedule = Schedule.find(params[:id])
 
     respond_to do |format|
@@ -55,7 +56,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to [@period, @schedule], notice: 'Schedule was successfully created.' }
+        format.html { redirect_to [@period, @schedule], notice: 'El horario ha sido exitosamente creado' }
         format.json { render json: [@period, @schedule], status: :created, location: @schedule }
       else
         format.html { render action: "new" }
@@ -72,7 +73,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       if @schedule.update_attributes(params[:schedule])
-        format.html { redirect_to [@period, @schedule], notice: 'Schedule was successfully updated.' }
+        format.html { redirect_to [@period, @schedule], notice: 'El horario fue exitosamente actualizado.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

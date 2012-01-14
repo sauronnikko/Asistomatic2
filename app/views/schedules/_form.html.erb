@@ -1,26 +1,28 @@
-<%= form_for [@period, @schedule] do |f| %>
-  <% if @schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+<div class="box">
+  <h2>
+    <a href="#" id="toggle-forms">Formulario de <%= if @schedule.new_record? then "Creación" else "Edición" end %></a>
+  </h2>
 
-      <ul>
-      <% @schedule.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="block" id="forms">
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+    <%= form_for [@period, @schedule] do |f| %>
+
+      <%= render "shared/error_messages", :target => @schedule %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :code %><br />
+        <%= f.text_field :code %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

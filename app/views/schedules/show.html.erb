@@ -1,48 +1,60 @@
-<p id="notice"><%= notice %></p>
+<%= render 'left_menu' %>
 
-<p>
-  <b>Nombre:</b>
-  <%= @schedule.name %>
-</p>
+<div class="grid_9">
 
-<p>
-  <b>Código:</b>
-  <%= @schedule.code %>
-</p>
+  <div class="box">
 
-<p>
-  <b>Período:</b>
-  <%= @schedule.period.name %>
-</p>
-
-<p>
-<b>Bloques:</b>
-
-<table>
-  <tr>
-    <th>Hora Inicial</th>
-    <th>Hora Final</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @schedule.schedule_blocks.each do |schedule_block| %>
-  <tr>
-    <td><%= l(schedule_block.start_time, :format => :time) %></td>
-    <td><%= l(schedule_block.end_time, :format => :time) %></td>
-    <td><%= link_to 'Ver', [@schedule.period, @schedule, schedule_block] %></td>
-    <td><%= link_to 'Editar', edit_period_schedule_schedule_block_path(@schedule.period, @schedule, schedule_block) %></td>
-    <td><%= link_to 'Eliminar', [@schedule.period, @schedule, schedule_block], confirm: '¿Está seguro que desea eliminar este bloque de horario?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-<%= link_to 'Nuevo Bloque de Horario', new_period_schedule_schedule_block_path(@schedule.period, @schedule) %>
-
-<br />
+    <h2>
+      <a href="#" id="toggle-paragraphs">Datos del Horario</a>
+    </h2>
+    <div class="block" id="paragraphs">
 
 
-<%= link_to 'Editar', edit_period_schedule_path(@schedule.period, @schedule) %> |
-<%= link_to 'Regresar', period_path(@schedule.period) %>
+      <p id="notice"><%= notice %></p>
+
+      <p>
+      <b>Nombre:</b>
+      <%= @schedule.name %>
+      </p>
+
+      <p>
+      <b>Código:</b>
+      <%= @schedule.code %>
+      </p>
+
+      <p>
+      <b>Período:</b>
+      <%= @schedule.period.name %>
+      </p>
+
+      <p>
+      <b>Bloques:</b>
+
+      <table>
+        <tr>
+          <th>Hora Inicial</th>
+          <th>Hora Final</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @schedule.schedule_blocks.each do |schedule_block| %>
+          <tr>
+            <td><%= l(schedule_block.start_time, :format => :time) %></td>
+            <td><%= l(schedule_block.end_time, :format => :time) %></td>
+            <td><%= link_to 'Ver', [@schedule.period, @schedule, schedule_block] %></td>
+            <td><%= link_to 'Editar', edit_period_schedule_schedule_block_path(@schedule.period, @schedule, schedule_block) %></td>
+            <td><%= link_to 'Eliminar', [@schedule.period, @schedule, schedule_block], confirm: '¿Está seguro que desea eliminar este bloque de horario?', method: :delete %></td>
+          </tr>
+        <% end %>
+      </table>
+
+      <br />
+
+    </div>
+    <br />
+
+  </div>
+
+</div>
