@@ -8,4 +8,8 @@ class Justification < ActiveRecord::Base
 
   validates_uniqueness_of :absence_id
 
+  def is_valid?
+    (self.is_justified ? "Si" : "No")
+  end 
+
 end

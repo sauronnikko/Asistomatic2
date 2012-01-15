@@ -17,35 +17,49 @@
         </ul>
         </li>
         <% unless @employee.nil? or @employee.new_record? %>
-        <li>
-        <a class="menuitem">Empleado Actual</a>
-        <ul class="submenu">
           <li>
-          <%= link_to "Ver Datos de Empleado", employee_path(@employee) %>
+          <a class="menuitem">Empleado Actual: <%= @employee.full_name %></a>
+          <ul class="submenu">
+            <li>
+            <%= link_to "Ver Datos de Empleado", employee_path(@employee) %>
+            </li>
+            <li>
+            <%= link_to "Editar Empleado", edit_employee_path(@employee) %>
+            </li>
+            <li>
+            <%= link_to "Eliminar Empleado", @employee, :method => :delete, :confirm => "¿Está seguro que desea eliminar este empleado?" %>
+            </li>
+          </ul>
           </li>
           <li>
-          <%= link_to "Editar Empleado", edit_employee_path(@employee) %>
+          <a class="menuitem">Inasistencias del Empleado</a>
+          <ul class="submenu">
+            <li>
+            <%= link_to "Ver Inasistencias de Empleado", employee_absences_path(@employee) %>
+            </li>
+            <li>
+            <%= link_to "Crear Inasistencia para Empleado", new_employee_absence_path(@employee) %>
+            </li>
+          </ul>
           </li>
-          <li>
-          <%= link_to "Eliminar Empleado", @employee, :method => :delete, :confirm => "¿Está seguro que desea eliminar este empleado?" %>
-          </li>
-        </ul>
-        </li>
-        <li>
-        <a class="menuitem">Inasistencias del Empleado</a>
-        <ul class="submenu">
-          <li>
-          <%= link_to "Ver Inasistencias de Empleado", employee_absences_path(@employee) %>
-          </li>
-          <li>
-          <%= link_to "Crear Inasistencia para Empleado", new_employee_absence_path(@employee) %>
-          </li>
-        </ul>
-        </li>
+
+          <% unless @absence.nil? or @absence.new_record? %>
+            <li>
+            <a class="menuitem">Justificación Actual</a>
+            <ul class="submenu">
+              <% if @absence.justification %>
+                <li>
+                <%= link_to "Ver Justificación Actual", [@employee, @absence, @absence.justification] %>
+                </li>
+                <li>
+                <%= link_to "Crear Inasistencia para Empleado", new_employee_absence_path(@employee) %>
+                </li>
+              </ul>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
       <% end %>
-      </ul>
-
-
     </div>
   </div>
 </div>

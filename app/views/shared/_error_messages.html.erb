@@ -1,14 +1,16 @@
 <% if target.errors.any? %>
   <div id="error_explanation">
-  <h2><%= pluralize(target.errors.count, "errores") %> prohibieron que este registro fuera salvado:</h2>
+    <h2><%= target.errors.count %><%= if target.errors.count == 1 then "error" else "errores" end %> 
+      <%= if target.errors.count == 1 then " prohibió" else " prohibieron" end %> que este registro fuera salvado:</h2>
 
-  <ul>
-    <% target.errors.full_messages.each do |msg| %>
-    <li>
-    <p><%= msg %> </p>
-    </li>
-    <% end %>
-  </ul>
-  </p>
+
+    <ul>
+      <% target.errors.full_messages.each do |msg| %>
+        <li>
+        <p><%= msg %> </p>
+        </li>
+      <% end %>
+    </ul>
+    </p>
   </div>
 <% end %>

@@ -1,16 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= render 'employees/left_menu' %>
 
-<p>
-  <b>Description:</b>
-  <%= @justification.description %>
-</p>
+<div class="grid_9">
 
-<p>
-  <b>Is justified:</b>
-  <%= @justification.is_justified %>
-</p>
+  <div class="box">
 
-<p>
-  <b>Absence:</b>
-  <%= @justification.absence_id %>
-</p>
+    <h2>
+      <a href="#" id="toggle-paragraphs">Datos de la Justificación</a>
+    </h2>
+    <div class="block" id="paragraphs">
+
+      <p id="notice"><%= notice %></p>
+
+      <p>
+      <b>Descripción:</b>
+      <%= @justification.description %>
+      </p>
+
+      <p>
+      <b>¿Es válida?</b>
+      <%= @justification.is_valid? %>
+      </p>
+
+
+    </div>
+  </div>
+</div>

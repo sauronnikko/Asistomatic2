@@ -26,7 +26,7 @@
             <td><%= link_to 'Eliminar', [@employee, absence], confirm: '¿Está seguro de que desea eliminar esta inasistencia?', method: :delete %></td>
             
             <% if absence.justification %>
-              <td><%= link_to 'Ver Justificación', employee_absence_justifications_path(@employee, absence) %></td>
+              <td><%= link_to "Ver Justificación #{if absence.justification.is_justified then "válida" else "inválida" end}", [@employee, absence, absence.justification] %></td>
             <% else %>
               <td><%= link_to 'Justificar', new_employee_absence_justification_path(@employee, absence) %></td>
             <% end %>
