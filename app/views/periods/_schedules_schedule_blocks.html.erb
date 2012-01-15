@@ -1,5 +1,5 @@
-<div id="period_schedules_schedule_blocks_checkboxes">
 
+<div id="period_schedules_schedule_blocks_checkboxes_inside">
   <% unless schedule.nil? %>
     <%= label_tag :schedule_blocks, "Bloques de Horario" %><br />
     <% schedule.schedule_blocks.each do |sb|%>
@@ -9,5 +9,4 @@
       </li>
     <% end %>
   <% end %>
-
 </div>

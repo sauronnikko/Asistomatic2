@@ -10,7 +10,7 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
     @period = Period.find(params[:period_id])
-    @schedules = Schedule.all
+    @schedules = @period.schedules
 
     respond_to do |format|
       format.html # index.html.erb

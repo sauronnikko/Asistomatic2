@@ -1,11 +1,15 @@
-<div id="period_work_dates_inside">
+jQuery(function() {
 
-  <%= label_tag :work_date, "Fecha" %><br />
-  <%= select_tag "absence[work_date_id]", options_from_collection_for_select(work_dates, :id, :work_date) %>
+  jQuery('#period').change(function(){
+    var period_id = jQuery(this).find('option:selected').val();
+    jQuery.get('/periods/' + period_id + '/dates', function(data){
+      jQuery("#period_work_dates_select").html(data);
+    });
+    return false;
 
-  <%= render 'periods/schedules', :schedules => schedules, :schedule => schedules.first %>
+  });
 
-  <script>
+
   jQuery('#period_schedules_select').change(function(){
     var schedule_id = jQuery(this).find('option:selected').val();
     jQuery.get('/schedules/' + schedule_id + '/schedule_blocks', function(data){
@@ -14,7 +18,5 @@
     return false;
 
   });
-  </script>
 
-
-</div>
+});
