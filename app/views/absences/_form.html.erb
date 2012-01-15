@@ -15,7 +15,7 @@
         <%= f.text_field :description %>
       </div>
       <div class="field">
-        <%= label_tag :period %><br />
+        <%= label_tag :period, "Período Escolar" %><br />
         <%= select_tag :period, options_from_collection_for_select(Period.all, "id", "name") %>
       </div>
 
@@ -45,13 +45,13 @@ jQuery('#period_schedules_select').change(function(){
 
     });
 
-</script>
+  </script>
 
 
 
-<div class="actions">
-  <%= submit_tag "Guardar Inasistencia" %>
-</div>
+  <div class="actions">
+    <%= submit_tag "Guardar Inasistencia" %>
+  </div>
 
 <% end %>
 

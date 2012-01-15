@@ -51,7 +51,7 @@ class AbsencesController < ApplicationController
   
     respond_to do |format|
       if @absence.save
-        format.html { redirect_to @absence, notice: 'La inasistencia fue exitosamente creada' }
+        format.html { redirect_to [@employee, @absence], notice: 'La inasistencia fue exitosamente creada' }
         format.json { render json: @absence, status: :created, location: @absence }
       else
         @work_dates = Period.first.work_dates
