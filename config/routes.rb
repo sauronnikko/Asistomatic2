@@ -21,6 +21,9 @@ Asistomatic::Application.routes.draw do
     end
   end
 
+
+  match 'all_absences/' => 'all_absences#index'
+
   resources :public
 
   root :to => 'public#index'  

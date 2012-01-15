@@ -1,0 +1,47 @@
+<div class="grid_3">
+  <div class="box menu">
+    <h2>
+      <a href="#" id="toggle-section-menu">Menú</a>
+    </h2>
+  </div>
+</div>
+
+<div class="grid_9">
+
+  <div class="box">
+    <h1>Últimas 100 Inasistencias</h1>
+
+    <div class="block">
+
+      <table>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cédula</th>
+          <th>Tipo</th>
+          <th>Fecha de Inasistencia</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% @absences.each do |absence| %>
+          <tr>
+            <td><%= absence.employee.first_name %></td>
+            <td><%= absence.employee.first_last_name %></td>
+            <td><%= absence.employee.unique_id %></td>
+            <td><%= absence.employee.employee_type %></td>
+            <td><%= absence.work_date.date %></td>
+            <td><%= link_to 'Ver Inasistencia', [absence.employee, absence] %></td>
+            <td><%= "" %></td>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>
+
+  </div>
+
+  <br />
+
+</div>

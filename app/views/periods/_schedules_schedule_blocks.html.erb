@@ -1,10 +1,9 @@
-
 <div id="period_schedules_schedule_blocks_checkboxes_inside">
   <% unless schedule.nil? %>
-    <%= label_tag :schedule_blocks, "Bloques de Horario" %><br />
+    <%= label_tag :schedule_blocks, "Seleccione los bloques de Horario en los que este empleado estuvo ausente" %><br />
     <% schedule.schedule_blocks.each do |sb|%>
       <li>
-      <%= label_tag :schedule_blocks, "#{sb.start_time} - #{sb.end_time}" %>  
+      <%= label_tag :schedule_blocks, sb.time_range %> 
       <%= check_box_tag "absence[schedule_block_ids][]", sb.id %><br>
       </li>
     <% end %>

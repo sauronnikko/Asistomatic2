@@ -18,7 +18,7 @@ class ScheduleBlock < ActiveRecord::Base
   validate :not_overlapping
 
   def time_range
-    "#{self.start_time} - #{self.end_time}"
+    "#{self.start_time.strftime("%I:%M %p")} - #{self.end_time.strftime("%I:%M %p")}"
   end
 
   def not_overlapping

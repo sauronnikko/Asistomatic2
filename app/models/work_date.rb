@@ -7,6 +7,8 @@ class WorkDate < ActiveRecord::Base
                         :uniqueness => true
   validates :period_id, :presence => true
   
-  
+  def date
+    self.work_date.strftime("%m/%d/%Y")
+  end  
 
 end

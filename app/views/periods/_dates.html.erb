@@ -1,7 +1,7 @@
 <div id="period_work_dates_inside">
 
   <%= label_tag :work_date, "Fecha" %><br />
-  <%= select_tag "absence[work_date_id]", options_from_collection_for_select(work_dates, :id, :work_date) %>
+  <%= select_tag "absence[work_date_id]", options_from_collection_for_select(work_dates, :id, :date) %>
 
   <%= render 'periods/schedules', :schedules => schedules, :schedule => schedules.first %>
 
