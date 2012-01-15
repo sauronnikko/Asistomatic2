@@ -1,4 +1,16 @@
 class JustificationsController < ApplicationController
+
+  before_filter :find_employee
+  before_filter :find_absence
+
+  def find_employee
+    @employee = Employee.find(params[:employee_id])
+  end
+  
+  def find_absence
+    @absence = Absence.find(params[:absence_id])
+  end
+
   # GET /justifications
   # GET /justifications.json
   def index
@@ -40,11 +52,11 @@ class JustificationsController < ApplicationController
   # POST /justifications
   # POST /justifications.json
   def create
-    @justification = Justification.new(params[:justification])
+    @justification = @absence.build_justification(params[:justification])
 
     respond_to do |format|
       if @justification.save
-        format.html { redirect_to @justification, notice: 'Justification was successfully created.' }
+        format.html { redirect_to [@employee, @absence, @justification], notice: 'La justificacion fue exitosamente creada.' }
         format.json { render json: @justification, status: :created, location: @justification }
       else
         format.html { render action: "new" }
@@ -60,7 +72,7 @@ class JustificationsController < ApplicationController
 
     respond_to do |format|
       if @justification.update_attributes(params[:justification])
-        format.html { redirect_to @justification, notice: 'Justification was successfully updated.' }
+        format.html { redirect_to [@employee, @absence, @justification], notice: 'La justificacion fue exitosamente actualizada' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

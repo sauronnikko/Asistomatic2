@@ -1,29 +1,26 @@
-<%= form_for(@justification) do |f| %>
-  <% if @justification.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@justification.errors.count, "error") %> prohibited this justification from being saved:</h2>
+<div class="box">
+  <h2>
+    <a href="#" id="toggle-forms">Formulario de <%= if @justification.new_record? then "Creación" else "Edición" end %></a>
+  </h2>
 
-      <ul>
-      <% @justification.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="block" id="forms">
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= form_for([@employee, @absence, @justification]) do |f| %>
+
+      <%= render "shared/error_messages", :target => @employee %>
+
+      <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_area :description %>
+      </div>
+      <div class="field">
+        <%= f.label :is_justified %><br />
+        <%= f.check_box :is_justified %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
   </div>
-  <div class="field">
-    <%= f.label :is_justified %><br />
-    <%= f.check_box :is_justified %>
-  </div>
-  <div class="field">
-    <%= f.label :absence_id %><br />
-    <%= f.number_field :absence_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

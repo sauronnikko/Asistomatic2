@@ -14,6 +14,7 @@ es:
       schedule: Horario
       schedule_block: Bloque de Horario
       absence: Inasistencia
+      justification: Justificación
     attributes:
       employee:
         first_name: "Nombre"
@@ -33,4 +34,7 @@ es:
         end_time: "Hora Final"
       absence:
         description: "Descripción"
+      justification:
+        description: "Descripción"
+        is_justified: "¿Es válida?"
       
