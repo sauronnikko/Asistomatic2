@@ -1,6 +1,9 @@
-<h1>Editing absence</h1>
+<%= render 'left_menu' %>
+
+<div class="grid_9">
+
+  <h1>Editar Inasistencia de <%= @employee.full_name %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @absence %> |
-<%= link_to 'Back', absences_path %>
+</div>

@@ -19,10 +19,10 @@
         <% @absences.each do |absence| %>
           <tr>
             <td><%= absence.description %></td>
-            <td><%= absence.date %></td>
-            <td><%= link_to 'Ver Datos', absence %></td>
+            <td><%= absence.work_date.work_date %></td>
+            <td><%= link_to 'Ver Datos', [@employee, absence] %></td>
             <td><%= link_to 'Editar', edit_employee_absence_path(@employee, absence) %></td>
-            <td><%= link_to 'Eliminar', absence, confirm: '¿Está seguro de que desea eliminar esta inasistencia?', method: :delete %></td>
+            <td><%= link_to 'Eliminar', [@employee, absence], confirm: '¿Está seguro de que desea eliminar esta inasistencia?', method: :delete %></td>
           </tr>
         <% end %>
       </table>

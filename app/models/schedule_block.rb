@@ -17,6 +17,10 @@ class ScheduleBlock < ActiveRecord::Base
 
   validate :not_overlapping
 
+  def time_range
+    "#{self.start_time} - #{self.end_time}"
+  end
+
   def not_overlapping
     schedule_blocks = ScheduleBlock.find_all_by_schedule_id(self.schedule.id)
     schedule_blocks.each do |sb|
