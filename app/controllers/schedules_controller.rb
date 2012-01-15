@@ -2,7 +2,6 @@ class SchedulesController < ApplicationController
 
 
   def schedule_blocks
-    binding.pry
     @schedule = Schedule.find(params[:id])
     render :partial => "periods/schedules_schedule_blocks", :locals => { :schedule => @schedule }
   end
