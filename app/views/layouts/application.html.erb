@@ -2,6 +2,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Asistomatic</title>
+
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -35,11 +36,10 @@
           </li>
         </ul>
         </li>
-        <li>
-        <%= link_to "Inasistencias", :controller => "all_absences", :action => "index" %>
-        </li>
         <li class="secondary">
-        <a href="#" title="Sistema de Asistencias">Sistema de Asistencias</a>
+        <% if user_signed_in? %>
+          <%= link_to "Desloguearse", destroy_user_session_path %> 
+        <% end %>
         </li>
       </ul>
     </div>
@@ -50,8 +50,7 @@
     <div class="clear"></div>
     <div class="grid_12" id="site_info">
       <div class="box">
-        <p>Fluid 960 Grid System, created by <a href="http://www.domain7.com/WhoWeAre/StephenBau.html">Stephen Bau</a>, based on the <a href="http://960.gs/">960 Grid System</a> by <a href="http://sonspring.com/journal/960-grid-system">Nathan Smith</a>. Released under the 
-        <a href="../../../licenses/GPL_license.txt">GPL</a> / <a href="../../../licenses/MIT_license.txt">MIT</a> <a href="../../../README.txt">Licenses</a>.</p>
+        <p>Sistema de Asistencias de Juan España</p>
       </div>
     </div>
     <div class="clear"></div>

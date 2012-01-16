@@ -1,5 +1,8 @@
 class ScheduleBlocksController < ApplicationController
 
+
+  before_filter :authenticate_user!
+
   before_filter :find_period
   before_filter :find_schedule
 

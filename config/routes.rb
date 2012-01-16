@@ -1,5 +1,15 @@
 Asistomatic::Application.routes.draw do
 
+
+  match 'all_absences/' => 'all_absences#index'
+
+  devise_for :users do
+    get "sign_in", :to => "users/sessions#new"
+    get "sign_out", :to => "users/sessions#destroy"
+  end
+
+  resources :users, :only => :show
+
   get "public/index"
 
   resources :schedules do
@@ -22,9 +32,6 @@ Asistomatic::Application.routes.draw do
   end
 
 
-  match 'all_absences/' => 'all_absences#index'
-
-  resources :public
 
   root :to => 'public#index'  
 

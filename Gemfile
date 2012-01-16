@@ -21,6 +21,7 @@ end
 gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer'
+gem 'devise'
 
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'pry-rails', :group => :development

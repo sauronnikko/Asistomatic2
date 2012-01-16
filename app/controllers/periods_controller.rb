@@ -1,5 +1,8 @@
 class PeriodsController < ApplicationController
 
+
+  before_filter :authenticate_user!
+
   def dates
     @period = Period.find(params[:id])
     @work_dates = @period.work_dates

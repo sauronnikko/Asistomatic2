@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
 
+  before_filter :authenticate_user!
 
   def schedule_blocks
     @schedule = Schedule.find(params[:id])
