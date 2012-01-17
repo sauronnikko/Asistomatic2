@@ -36,9 +36,17 @@
           </li>
         </ul>
         </li>
+        <li>
+        <%= link_to "Inasistencias", :controller => "all_absences", :action => "index" %>
+        <ul>
+          <li>
+          <%= link_to "Agregar Periodo", new_period_path %>
+          </li>
+        </ul>
+        </li>
         <li class="secondary">
         <% if user_signed_in? %>
-          <%= link_to "Desloguearse", destroy_user_session_path %> 
+          <%= link_to "Usuario #{current_user.username}. Desloguearse", destroy_user_session_path %> 
         <% end %>
         </li>
       </ul>

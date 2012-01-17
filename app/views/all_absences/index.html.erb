@@ -23,6 +23,7 @@
           <th></th>
           <th></th>
           <th></th>
+          <th></th>
         </tr>
 
         <% @absences.each do |absence| %>
@@ -32,6 +33,7 @@
             <td><%= absence.employee.unique_id %></td>
             <td><%= absence.employee.employee_type %></td>
             <td><%= absence.work_date.date %></td>
+            <td><%= link_to 'Ver Empleado', absence.employee %></td>
             <td><%= link_to 'Ver Inasistencia', [absence.employee, absence] %></td>
             <td><%= "" %></td>
           </tr>
