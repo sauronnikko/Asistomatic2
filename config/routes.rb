@@ -1,11 +1,16 @@
 Asistomatic::Application.routes.draw do
 
 
-  match 'all_absences/' => 'all_absences#index'
+  match 'all_absences' => 'all_absences#index', :as => :all_absences
+
+
+
+  devise_for :users
 
 
   resources :users
-  devise_for :users
+
+
 
   resources :schedules do
     get "schedule_blocks", :on => :member
