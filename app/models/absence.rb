@@ -10,6 +10,7 @@ class Absence < ActiveRecord::Base
 
   validates :employee, :presence => true
   validates :work_date_id, :presence => true
+  validates :schedule_blocks, :presence => true
 
   def period
     (self.work_date ? self.work_date.period : nil)

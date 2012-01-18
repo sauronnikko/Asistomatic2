@@ -5,7 +5,7 @@
   <div class="box">
 
     <h2>
-      <a href="#" id="toggle-paragraphs">Datos la Inasistencia</a>
+      <a href="#" id="toggle-paragraphs">Datos de la Inasistencia del Empleado <%= @employee.full_name %></a>
     </h2>
     <div class="block" id="paragraphs">
 
@@ -15,6 +15,21 @@
       <b>Descripción:</b>
       <%= @absence.description %>
       </p>
+      
+      <p>
+      <b>Fecha:</b>
+      <%= @absence.work_date.date %>
+      </p>
+
+      <p>
+      <b>Bloques de Horario:</b>
+      <% @absence.schedule_blocks.each do |sb| %>
+        <li>
+          <%= sb.time_range %>
+        </li> 
+      <% end %> 
+      </p>
+
 
     </div>
   </div>

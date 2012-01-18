@@ -76,7 +76,7 @@ class PeriodsController < ApplicationController
       if @period.update_attributes(params[:period])
         @period.create_new_work_dates
         @period.destroy_orphaned_work_dates
-        format.html { redirect_to @period, notice: 'Period was successfully updated.' }
+        format.html { redirect_to @period, notice: 'El Período fue exitosamente actualizado.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

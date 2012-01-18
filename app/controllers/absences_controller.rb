@@ -54,7 +54,6 @@ class AbsencesController < ApplicationController
   # POST /absences.json
   def create
     @absence = @employee.absences.build(params[:absence])
-  
     respond_to do |format|
       if @absence.save
         format.html { redirect_to [@employee, @absence], notice: 'La inasistencia fue exitosamente creada' }

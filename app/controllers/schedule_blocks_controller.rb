@@ -78,7 +78,7 @@ class ScheduleBlocksController < ApplicationController
 
     respond_to do |format|
       if @schedule_block.update_attributes(params[:schedule_block])
-        format.html { redirect_to [@period, @schedule, @schedule_block], notice: 'El bloque de horario ha sido actualizado exitosamente' }
+        format.html { redirect_to [@period, @schedule, @schedule_block], notice: 'El Bloque de Horario ha sido actualizado exitosamente' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

@@ -35,6 +35,7 @@ es:
         end_time: "Hora Final"
       absence:
         description: "Descripción"
+        schedule_blocks: "Bloques de Horario"
       justification:
         description: "Descripción"
         is_justified: "¿Es válida?"
