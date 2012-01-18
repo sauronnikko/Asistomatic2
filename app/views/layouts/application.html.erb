@@ -46,7 +46,9 @@
         </li>
         <li class="secondary">
         <% if user_signed_in? %>
-          <%= link_to "Usuario #{current_user.username}. Desloguearse", destroy_user_session_path, :method => :delete %> 
+          <%= link_to "Usuario #{current_user.username}. Desloguearse", destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to "Loguearse", new_user_session_path %>
         <% end %>
         </li>
       </ul>
@@ -58,7 +60,7 @@
     <div class="clear"></div>
     <div class="grid_12" id="site_info">
       <div class="box">
-        <p>Sistema de Asistencias de Juan España</p>
+        <p>E.T.C.R.D Sistema de Asistencias de Juan España</p>
       </div>
     </div>
     <div class="clear"></div>

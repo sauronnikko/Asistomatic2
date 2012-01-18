@@ -15,6 +15,7 @@ es:
       schedule_block: Bloque de Horario
       absence: Inasistencia
       justification: Justificación
+      user: Usuario 
     attributes:
       employee:
         first_name: "Nombre"
@@ -37,4 +38,9 @@ es:
       justification:
         description: "Descripción"
         is_justified: "¿Es válida?"
-      
+      user:
+        username: "Pseudónimo"
+        email: "Correo electrónico"
+        password: "Contraseña"
+        password_confirmation: "Confirmar contraseña"
+        remember_me: "Recordarme"

@@ -31,9 +31,7 @@ Asistomatic::Application.routes.draw do
     end
   end
 
-
-
-  root :to => 'public#index'  
+  root :to => 'all_absences#index'  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
